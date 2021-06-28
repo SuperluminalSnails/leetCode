@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { addTwoNumbers } = require('./../souce/index');
 var assert = require('assert');
 
