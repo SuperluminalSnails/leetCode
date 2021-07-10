@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var lengthOfLongestSubstring = function (s) {
+        debugger;
+        if (!s.length) {
+          return 0;
+        }
+        if (s.length === 1) {
+          return 1;
+        }
+        let maxLength = 0;
+        for (let i = 0, len = s.length; i < len; i++) {
+          let map = {};
+          let item = s[i];
+          let maxMapLength = 0;
+          while (map[item] === undefined) {
+            maxMapLength++;
+            map[item] = 1;
+            i++;
+            if (i < len) {
+              item = s[i];
+            } else {
+              break;
+            }
+          }
+          if (maxMapLength > maxLength) {
+            maxLength = maxMapLength;
+          }
+          i--;
+        }
+        return maxLength;
+      };
+    </script>
+    <script>
+      lengthOfLongestSubstring('bbb');
+    </script>
+  </body>
+</html>

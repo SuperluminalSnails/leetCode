@@ -11,20 +11,23 @@ var lengthOfLongestSubstring = function (s) {
   }
   let maxLength = 0;
   for (let i = 0, len = s.length; i < len; i++) {
-    const map = {};
-    let mapLength = 0;
-    for (let j = i; j < len; j++) {
-      const str = s[j];
-      if (map[str] === undefined) {
-        map[str] = str;
-        mapLength++;
+    let map = {};
+    let item = s[i];
+    let maxMapLength = 0;
+    while (map[item] === undefined) {
+      maxMapLength++;
+      map[item] = 1;
+      i++;
+      if (i < len) {
+        item = s[i];
       } else {
         break;
       }
     }
-    if (mapLength > maxLength) {
-      maxLength = mapLength;
+    if (maxMapLength > maxLength) {
+      maxLength = maxMapLength;
     }
+    i--;
   }
   return maxLength;
 };
